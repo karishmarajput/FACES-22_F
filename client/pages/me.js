@@ -133,13 +133,21 @@ export default function Login(props) {
   });
 
   const group = getRootProps();
-
+  const firebaseConfig = {
+    apiKey: "AIzaSyDio8nyzeQ0_9Iw4u-WLXHDONwMSdkIE3U",
+    authDomain: "faces-43300.firebaseapp.com",
+    databaseURL: "https://faces-43300-default-rtdb.firebaseio.com",
+    projectId: "faces-43300",
+    storageBucket: "faces-43300.appspot.com",
+    messagingSenderId: "806406930381",
+    appId: "1:806406930381:web:c1ff0faaddf4befa97ce84",
+    measurementId: "G-K9C7QVRNRQ"
+  };
   if (!firebase.apps.length) {
-    firebase.initializeApp(JSON.parse(process.env.NEXT_PUBLIC_FIREBASE));
+    firebase.initializeApp(firebaseConfig);
   } else {
     firebase.app();
   }
-
   function login() {
     var recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
       "recaptcha-container",
